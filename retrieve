@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# scp -r jenkins@leeroy.galaxyproject.org:/var/lib/jenkins/jobs/tool\\\ tests\\\ against\\\ usegalaxy.org/builds/{0..30} data/org/
+# scp -r jenkins@leeroy.galaxyproject.org:/var/lib/jenkins/jobs/tool\\\ tests\\\ against\\\ usegalaxy.eu/builds/{0..30} data/eu/
+# scp -r jenkins@leeroy.galaxyproject.org:/var/lib/jenkins/jobs/tool\\\ tests\\\ against\\\ test.galaxyproject.org/builds/{0..30} data/test/
+# scp -r jenkins@leeroy.galaxyproject.org:/var/lib/jenkins/jobs/tool\\\ tests\\\ Galaxy\\\ Australia/builds/{0..30} data/org.au/
+
+rsync -am --include='tool_test_output.json' --include='*/' --exclude='*' jenkins@leeroy.galaxyproject.org:/var/lib/jenkins/jobs/tool\\\ tests\\\ against\\\ usegalaxy.org/builds/{1..30} data/org/
+rsync -am --include='tool_test_output.json' --include='*/' --exclude='*' jenkins@leeroy.galaxyproject.org:/var/lib/jenkins/jobs/tool\\\ tests\\\ against\\\ usegalaxy.eu/builds/{1..30} data/eu/
+rsync -am --include='tool_test_output.json' --include='*/' --exclude='*' jenkins@leeroy.galaxyproject.org:/var/lib/jenkins/jobs/tool\\\ tests\\\ against\\\ test.galaxyproject.org/builds/{1..30} data/test/
+rsync -am --include='tool_test_output.json' --include='*/' --exclude='*' jenkins@leeroy.galaxyproject.org:/var/lib/jenkins/jobs/tool\\\ tests\\\ Galaxy\\\ Australia/builds/{1..30} data/org.au/
